@@ -1,0 +1,15 @@
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/application/TransactionService.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/application/AccountService.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/entity/Customer.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/repository/TransactionRepository.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/dto/CustomerDto.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/repository/AccountRepository.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/interfaces/rest/AccountController.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/dto/AccountOpenRequestDto.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/BackendAssignmentApplication.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/converter/CustomerConverter.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/application/CustomerService.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/entity/Account.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/entity/Transaction.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/interfaces/rest/CustomerController.java
+/Users/mert/Workspace/backend-assignment/src/main/java/com/capgemini/backendassignment/infrastructure/repository/CustomerRepository.java

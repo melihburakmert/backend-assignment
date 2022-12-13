@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: backend-assignment
+  datasource:
+    host: localhost
+    port: 5432
+    database: backend_assignment_db
+    url: jdbc:postgresql://${spring.datasource.host}:${spring.datasource.port}/${spring.datasource.database}?currentSchema=${spring.datasource.default-schema},public
+    username: postgres
+    password: hasL0
+    default-schema: backend_assignment
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    show-sql: false
+    hibernate:
+      ddl-auto: create
