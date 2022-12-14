@@ -17,17 +17,18 @@ public class AccountService {
     private final TransactionService transactionService;
     private final CustomerService customerService;
 
-    public void openAccount(final AccountOpenRequestDto accountOpenRequestDto) {
+    public Account openAccount(final AccountOpenRequestDto accountOpenRequestDto) {
         final Customer customer = customerService.getCustomer(accountOpenRequestDto.getCustomerId());
         final Long initialCredit = accountOpenRequestDto.getInitialCredit();
         final Account account = Account.builder()
                 .customer(customer)
                 .balance(initialCredit)
                 .build();
-        accountRepository.save(account);
+        final Account savedAccount = accountRepository.save(account);
 
         if(initialCredit > 0) {
             transactionService.saveTransaction(customer, initialCredit);
         }
+        return savedAccount;
     }
 }
