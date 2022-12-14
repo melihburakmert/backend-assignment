@@ -11,7 +11,7 @@ spring:
     default-schema: backend_assignment
     driver-class-name: org.postgresql.Driver
   jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
     show-sql: false
     hibernate:
