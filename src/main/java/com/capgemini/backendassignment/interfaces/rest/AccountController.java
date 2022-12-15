@@ -1,5 +1,6 @@
 package com.capgemini.backendassignment.interfaces.rest;
 
+import com.capgemini.backendassignment.application.AccountOpenRequestHandler;
 import com.capgemini.backendassignment.application.AccountService;
 import com.capgemini.backendassignment.infrastructure.dto.AccountOpenRequestDto;
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,7 +22,7 @@ import javax.validation.Valid;
 @Tag(name = "Open an Account")
 public class AccountController {
 
-    private final AccountService accountService;
+    private final AccountOpenRequestHandler requestHandler;
 
     @PostMapping(value = "openAccount", consumes = "application/json")
     @Operation(summary = "Open an account for a customer with given credit")
@@ -40,7 +41,7 @@ public class AccountController {
     public ResponseEntity<String> openAccount(
             @Valid @RequestBody final AccountOpenRequestDto accountOpenRequestDto) {
         try {
-            accountService.openAccount(accountOpenRequestDto);
+            requestHandler.openAccount(accountOpenRequestDto);
             return ResponseEntity.ok().body("The account is opened successfully.");
         } catch (final Exception e) {
             return ResponseEntity.badRequest().body("An error occurred while adding the account.");

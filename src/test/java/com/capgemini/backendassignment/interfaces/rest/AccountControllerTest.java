@@ -1,12 +1,12 @@
 package com.capgemini.backendassignment.interfaces.rest;
 
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.capgemini.backendassignment.application.AccountService;
+import com.capgemini.backendassignment.application.AccountOpenRequestHandler;
 import com.capgemini.backendassignment.infrastructure.dto.AccountOpenRequestDto;
-import com.capgemini.backendassignment.infrastructure.entity.Account;
 import com.capgemini.backendassignment.infrastructure.entity.Customer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ class AccountControllerTest {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @MockBean private AccountService accountService;
+    @MockBean private AccountOpenRequestHandler requestHandler;
 
     @Autowired private MockMvc mockMvc;
 
@@ -36,9 +36,6 @@ class AccountControllerTest {
         final String content = objectMapper.writeValueAsString(accountOpenRequest);
 
         final Customer customer = aCustomer();
-        final Account account = anAccount(customer);
-
-        when(accountService.openAccount(accountOpenRequest)).thenReturn(account);
 
         final MockHttpServletRequestBuilder requestBuilder =
                 post("/account/openAccount")
@@ -48,14 +45,8 @@ class AccountControllerTest {
 
         mockMvc.perform(requestBuilder)
                 .andExpect(status().isOk());
-    }
 
-    private Account anAccount(final Customer customer) {
-        return Account.builder()
-                .customer(customer)
-                .balance(500L)
-                .accountId(1L)
-                .build();
+        verify(requestHandler, times(1)).openAccount(accountOpenRequest);
     }
 
     private Customer aCustomer() {

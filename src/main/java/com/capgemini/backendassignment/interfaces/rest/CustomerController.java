@@ -2,6 +2,7 @@ package com.capgemini.backendassignment.interfaces.rest;
 
 import com.capgemini.backendassignment.application.CustomerService;
 import com.capgemini.backendassignment.infrastructure.dto.CustomerDto;
+import com.capgemini.backendassignment.infrastructure.exception.CustomerNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -45,11 +46,11 @@ public class CustomerController {
                             content = @Content)
             })
     public CustomerDto getCustomerDetails(
-            @Valid @PathVariable("customer_id") final Long customerId) throws Exception {
+            @Valid @PathVariable("customer_id") final Long customerId) throws CustomerNotFoundException {
         try {
             return customerService.getCustomerDetails(customerId);
         } catch (final Exception e) {
-            throw new Exception();
+            throw new CustomerNotFoundException(e.getMessage());
         }
     }
 }
